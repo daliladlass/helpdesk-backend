@@ -1,5 +1,6 @@
 package com.dalila_jose.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -7,19 +8,44 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.dalila_jose.helpdesk.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public abstract class Pessoa {
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // anotation para criar uma tabela da entidade pessoa la no banco de dados
+public abstract class Pessoa implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias dessa em aruivos de memoria.
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id //esse nosso atributo é uma chave primaria
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//A geração dessa chave primaria é de responsabilidade do BD
 	protected Integer id;
 	protected String nome;
+	
+	@Column(unique = true)// informa que a coluna de cpf é unica no banco
 	protected String cpf;
+	
+	@Column(unique = true)// informa que a coluna de email é unico no banco
 	protected String email;
 	protected String senha;
+	
+	@ElementCollection(fetch = FetchType.EAGER) //informa que é uma coleção e quando buscar a lista de perfis, venha junto com o usuário.
+	@CollectionTable(name = "PERFIS")//terá uma tabela no banco apenas com perfis
 	protected Set<Integer> perfis = new HashSet<>();
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 	
 	public Pessoa() {
 		super();
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
@@ -29,6 +55,7 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 		this.email = email;
 		this.senha = senha;
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Integer getId() {
