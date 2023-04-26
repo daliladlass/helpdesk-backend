@@ -29,28 +29,30 @@ public class DBService {
 	private ChamadoRepository chamadoRepository;
 
 	public void instanciaDB() {
-		Tecnico tec1 = new Tecnico(null, "Maria Batista", "11014133017", "maria@mail.com", "123");
+		Tecnico tec1 = new Tecnico(null, "Maria Batista", "110.141.330-17", "maria@mail.com", "123");
 		tec1.addPerfil(Perfil.ADMIN);
+		Tecnico tec2 = new Tecnico(null, "Douglas Batista", "110.141.264-41", "douglas@mail.com", "123");
+		Tecnico tec3 = new Tecnico(null, "Lucas Santos", "110.141.264-58", "lucas@mail.com", "123");
+		
 
-		Cliente cli1 = new Cliente(null, "Felipe Maia", "75509688025", "felipe@mail.com", "123");
-
+		Cliente cli1 = new Cliente(null, "Felipe Maia", "755.096.880-25", "felipe@mail.com", "123");
+		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "755.092.356-98", "jacinto@mail.com", "123");
+		Cliente cli3 = new Cliente(null, "Amanda Felipe", "793.092.356-71", "amanda@mail.com", "123");
+		
+		
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro Chamado", tec1,
 				cli1);
-		
-		Tecnico tec2 = new Tecnico(null, "Douglas Batista", "11014126441", "douglas@mail.com", "123");
-		tec1.addPerfil(Perfil.ADMIN);
-
-		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "75509235698", "jacinto@mail.com", "123");
-
 		Chamado c2 = new Chamado(null, Prioridade.ALTA, Status.ABERTO, "Chamado 02", "Segundo Chamado", tec2,
 				cli2);
+		Chamado c3 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 03", "|Terceiro Chamado", tec3,
+				cli3);
+		
+		
+		
 
-		tecnicoRepository.saveAll(Arrays.asList(tec1));
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		chamadoRepository.saveAll(Arrays.asList(c1));
-		tecnicoRepository.saveAll(Arrays.asList(tec2));
-		clienteRepository.saveAll(Arrays.asList(cli2));
-		chamadoRepository.saveAll(Arrays.asList(c2));
-
+		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2, tec3));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
+		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3));
+		
 	}
 }
