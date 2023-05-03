@@ -11,16 +11,26 @@ import com.dalila_jose.helpdesk.domain.Tecnico;
 import com.dalila_jose.helpdesk.domain.dtos.TecnicoDTO;
 import com.dalila_jose.helpdesk.services.TecnicoService;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
-@RequestMapping(value = "/tecnicos") //adcionando o endpoint inicial dos meus tecnicos
+@RequestMapping(value = "/tecnicos") // adicionando o endpoint inicial dos meus tecnicos
 public class TecnicoResource {
-		
+
 	@Autowired
 	private TecnicoService service;
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
 		Tecnico obj = service.findById(id);
 		return ResponseEntity.ok().body(new TecnicoDTO(obj));
+	}
+
+	@GetMapping
+	public ResponseEntity<List<TecnicoDTO>> findAll() {
+		List<Tecnico> list = service.findAll();
+		List<TecnicoDTO> listDTO = list.stream().map(obj -> new TecnicoDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 }
