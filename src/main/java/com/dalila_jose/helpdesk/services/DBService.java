@@ -34,12 +34,14 @@ public class DBService {
 		Tecnico tec2 = new Tecnico(null, "Douglas Batista", "735.345.210-21", "douglas@mail.com", "123");
 		Tecnico tec3 = new Tecnico(null, "Lucas Santos", "839.015.230-49", "lucas@mail.com", "123");
 		Tecnico tec4 = new Tecnico(null, "José Ricardo", "032.990.481-71", "jose@mail.com", "123");
+		Tecnico tec5 = new Tecnico(null, "Cinthia Santos", "548.795.620-09", "cinthia@mail.com", "123");
 		
 
 		Cliente cli1 = new Cliente(null, "Felipe Maia", "076.220.800-71", "felipe@mail.com", "123");
 		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "689.850.000-71", "jacinto@mail.com", "123");
 		Cliente cli3 = new Cliente(null, "Amanda Felipe", "845.563.800-14", "amanda@mail.com", "123");
 		Cliente cli4 = new Cliente(null, "Dalila Silva", "376.278.510-41", "dalila@mail.com", "123");
+		Cliente cli5 = new Cliente(null, "Cássio Elias", "632.897.590-24", "cassio@mail.com", "123");
 		
 		
 		
@@ -55,8 +57,8 @@ public class DBService {
 		
 		
 
-		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2, tec3, tec4));
-		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4));
+		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2, tec3, tec4, tec5));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4, cli5));
 		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
 		
 	}
