@@ -12,7 +12,7 @@ import com.dalila_jose.helpdesk.domain.Tecnico;
 import com.dalila_jose.helpdesk.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class TecnicoDTO implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias dessa em aruivos de memoria.
+public class TecnicoDTO implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias em arquivos de memoria.
 	
 	private static final long serialVersionUID = 1L;
 	

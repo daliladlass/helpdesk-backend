@@ -19,6 +19,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity // anotation para criar uma tabela da entidade pessoa la no banco de dados
 public abstract class Pessoa implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias dessa em aruivos de memoria.
 	
@@ -29,6 +31,7 @@ public abstract class Pessoa implements Serializable { // serializeble é para c
 	protected Integer id;
 	protected String nome;
 	
+	@CPF //validador de cpf
 	@Column(unique = true)// informa que a coluna de cpf é unica no banco
 	protected String cpf;
 	

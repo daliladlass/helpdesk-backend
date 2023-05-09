@@ -29,30 +29,35 @@ public class DBService {
 	private ChamadoRepository chamadoRepository;
 
 	public void instanciaDB() {
-		Tecnico tec1 = new Tecnico(null, "Maria Batista", "110.141.330-17", "maria@mail.com", "123");
+		Tecnico tec1 = new Tecnico(null, "Maria Batista", "910.556.790-49", "maria@mail.com", "123");
 		tec1.addPerfil(Perfil.ADMIN);
-		Tecnico tec2 = new Tecnico(null, "Douglas Batista", "110.141.264-41", "douglas@mail.com", "123");
-		Tecnico tec3 = new Tecnico(null, "Lucas Santos", "110.141.264-58", "lucas@mail.com", "123");
+		Tecnico tec2 = new Tecnico(null, "Douglas Batista", "735.345.210-21", "douglas@mail.com", "123");
+		Tecnico tec3 = new Tecnico(null, "Lucas Santos", "839.015.230-49", "lucas@mail.com", "123");
+		Tecnico tec4 = new Tecnico(null, "José Ricardo", "032.990.481-71", "jose@mail.com", "123");
 		
 
-		Cliente cli1 = new Cliente(null, "Felipe Maia", "755.096.880-25", "felipe@mail.com", "123");
-		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "755.092.356-98", "jacinto@mail.com", "123");
-		Cliente cli3 = new Cliente(null, "Amanda Felipe", "793.092.356-71", "amanda@mail.com", "123");
+		Cliente cli1 = new Cliente(null, "Felipe Maia", "076.220.800-71", "felipe@mail.com", "123");
+		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "689.850.000-71", "jacinto@mail.com", "123");
+		Cliente cli3 = new Cliente(null, "Amanda Felipe", "845.563.800-14", "amanda@mail.com", "123");
+		Cliente cli4 = new Cliente(null, "Dalila Silva", "376.278.510-41", "dalila@mail.com", "123");
+		
 		
 		
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro Chamado", tec1,
 				cli1);
 		Chamado c2 = new Chamado(null, Prioridade.ALTA, Status.ABERTO, "Chamado 02", "Segundo Chamado", tec2,
 				cli2);
-		Chamado c3 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 03", "|Terceiro Chamado", tec3,
+		Chamado c3 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 03", "Terceiro Chamado", tec3,
 				cli3);
+		Chamado c4 = new Chamado(null, Prioridade.ALTA, Status.ANDAMENTO, "Chamado 04", "Quarto Chamado", tec4,
+				cli4);
 		
 		
 		
 
-		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2, tec3));
-		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
-		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3));
+		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2, tec3, tec4));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4));
+		chamadoRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
 		
 	}
 }
