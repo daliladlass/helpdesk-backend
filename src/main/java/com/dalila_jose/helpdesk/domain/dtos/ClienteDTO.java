@@ -10,11 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.dalila_jose.helpdesk.domain.Tecnico;
+import com.dalila_jose.helpdesk.domain.Cliente;
 import com.dalila_jose.helpdesk.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class TecnicoDTO implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias em arquivos de memoria.
+public class ClienteDTO implements Serializable { // serializeble é para criar uma sequencias de bytes das intancias em arquivos de memoria.
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -33,12 +33,12 @@ public class TecnicoDTO implements Serializable { // serializeble é para criar 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 	
-	public TecnicoDTO() {
+	public ClienteDTO() {
 		super();
 		addPerfil(Perfil.CLIENTE);
 	}	
 	
-	public TecnicoDTO(Tecnico obj) {
+	public ClienteDTO(Cliente obj) {
 		super();
 		this.id = obj.getId();
 		this.nome = obj.getNome();
