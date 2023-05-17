@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.dalila_jose.helpdesk.domain.Pessoa;
@@ -21,9 +22,10 @@ public class TecnicoService {
 
 	@Autowired
 	private TecnicoRepository repository;
-	
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	@Autowired
+	private BCryptPasswordEncoder encoder;//para encriptografar a senha
 
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
@@ -38,6 +40,7 @@ public class TecnicoService {
 	public Tecnico create(TecnicoDTO objDTO) {
 		
 		objDTO.setId(null);//apaenas para assegurar que o id vai vir nulo
+		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		validaPorCpfEEmail(objDTO);
 		Tecnico newObj = new Tecnico(objDTO);
 		return repository.save(newObj);			
