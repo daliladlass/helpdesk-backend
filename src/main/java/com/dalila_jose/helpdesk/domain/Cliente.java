@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Cliente extends Pessoa {
 	private static final long serialVersionUID = 1L;
 	
-	@JsonIgnore
+	@JsonIgnore // essa anotation é para impedir de buscar infomações serializadas e lista apenas 1 tecnico
 	@OneToMany(mappedBy = "cliente")
 	private List<Chamado> chamados = new ArrayList<>();
 

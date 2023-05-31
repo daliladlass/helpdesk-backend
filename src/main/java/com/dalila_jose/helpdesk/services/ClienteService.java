@@ -25,7 +25,7 @@ public class ClienteService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 	@Autowired
-	private BCryptPasswordEncoder encoder;//para encriptografar a senha
+	private BCryptPasswordEncoder encoder;//para encriptar a senha
 
 	public Cliente findById(Integer id) {
 		Optional<Cliente> obj = repository.findById(id);
@@ -39,7 +39,7 @@ public class ClienteService {
 
 	public Cliente create(ClienteDTO objDTO) {
 		
-		objDTO.setId(null);//apaenas para assegurar que o id vai vir nulo
+		objDTO.setId(null);//assegura que o id vem nulo
 		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		validaPorCpfEEmail(objDTO);
 		Cliente newObj = new Cliente(objDTO);
