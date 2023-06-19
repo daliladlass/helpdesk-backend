@@ -44,7 +44,7 @@ public class DBService {
 		Cliente cli2 = new Cliente(null, "Jacinto Gomes", "689.850.000-71", "jacinto@mail.com", encoder.encode("123"));
 		Cliente cli3 = new Cliente(null, "Amanda Felipe", "845.563.800-14", "amanda@mail.com", encoder.encode("123"));
 		Cliente cli4 = new Cliente(null, "Dalila Silva", "376.278.510-41", "dalila@mail.com", encoder.encode("123"));
-		Cliente cli5 = new Cliente(null, "Cássio Elias", "632.897.590-24", "cassio@mail.com", encoder.encode("123"));
+		Cliente cli5 = new Cliente(null, "Cássio Elias Maia", "632.897.590-24", "cassio@mail.com", encoder.encode("123"));
 		
 		
 		

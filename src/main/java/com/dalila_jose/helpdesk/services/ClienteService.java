@@ -48,7 +48,7 @@ public class ClienteService {
 	
 	public Cliente update(Integer id, @Valid ClienteDTO objDTO) {//vai validar o cpf se já existe
 		objDTO.setId(id);
-		Cliente oldObj = findById(id);
+		Cliente oldObj = findById(id); 
 		validaPorCpfEEmail(objDTO);
 		oldObj = new Cliente(objDTO);
 		return repository.save(oldObj);
